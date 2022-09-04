@@ -2,7 +2,7 @@
 **Test APIs for the native Pair applications**
 
 ## Overview
-This repository contains API implementations written using Rust and Go. They are not interchangeable. The Rust API is, in essence, an earlier version of the Go API. Their respective features are detailed below. I suggest not attempting to run these APIs directly, but reading their source code and applying their structures and functions for yourself.
+This repository contains API implementations written using Rust and Go. They are not interchangeable. The Rust API is, in essence, an earlier version of the Go API. Their respective features are detailed below. I suggest not attempting to run these APIs directly, but reading their source code and applying their structures and functions for yourself. These APIs were designed for an earlier prototype of the Pair app that utilized internet connectivity, but now the Pair app is designed to be fully offline.
 
 ### Rust
 - gRPC server
