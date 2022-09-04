@@ -1,0 +1,25 @@
+[package]
+name = "pair-api"
+version = "0.1.0"
+authors = ["fitebone <jjfoster7@pm.me>"]
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+tonic = "0.7.2"
+prost = "0.10.4"
+tokio = { version = "1", features = [ "full" ] }
+jsonwebtoken = "8"
+serde = "1"
+dotenv = "0.15.0"
+redis = { version = "0.21.5", features = [ "tokio-native-tls-comp", "aio", "tokio-comp" ] }
+lazy_static = "1.4"
+#async_once = "0.2.6"
+
+[build-dependencies]
+tonic-build = "0.7.2"
+
+[[bin]]
+name = "server"
+path = "src/server.rs"

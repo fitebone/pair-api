@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package pairapi;
+
+service PairAPI {
+    rpc CreateAccount (AccountCreateReq) returns (AccountCreateResp) {}
+    rpc GetAccount (AccountGetReq) returns (AccountGetResp) {}
+}
+
+// Create New Account //
+message AccountCreateReq {
+    string id = 1;
+    string username = 2;
+    string created = 3;
+    string points = 4;
+}
+
+message AccountCreateResp {
+}
+
+// Get Account //
+message AccountGetReq {
+    string id = 1;
+}
+
+message AccountGetResp {
+    string email = 2;
+    string name = 3;
+    string created = 4;
+    string pic = 5;
+    string points = 6;
+}
