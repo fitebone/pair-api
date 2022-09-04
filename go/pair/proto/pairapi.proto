@@ -1,0 +1,91 @@
+syntax = "proto3";
+
+package pairapi;
+
+option go_package = "./pairapi";
+
+service PairAPI {
+    // Account //
+    rpc CreateAccount (AccountCreateReq) returns (AccountCreateResp) {}
+    rpc GetAccount (AccountGetReq) returns (AccountGetResp) {}
+    rpc UpdateAccount (AccountUpdateReq) returns (AccountUpdateResp) {}
+
+    // Pair //
+    rpc StartPair (PairStartReq) returns (PairStartResp) {}
+    rpc FinishPair (PairFinishReq) returns (PairFinishResp) {}
+}
+
+////////////////////
+//    Account     //
+////////////////////
+
+// Create Account //
+message AccountCreateReq {
+    string id = 1;
+    string email = 2;
+    string pic = 3;
+}
+
+message AccountCreateResp {
+    string id = 1;
+    string email = 2;
+    string username = 3;
+    int64 created = 4;
+    string pic = 5;
+    int32 points = 6;
+    int32 peers = 7;
+}
+
+// Get Account //
+message AccountGetReq {
+    string id = 1;
+}
+
+message AccountGetResp {
+    string id = 1;
+    string email = 2;
+    string username = 3;
+    int64 created = 4;
+    string pic = 5;
+    int32 points = 6;
+    int32 peers = 7;
+}
+
+// Update Account //
+message AccountUpdateReq {
+    string id = 1;
+    string column = 2;
+    string data = 3;
+}
+
+message AccountUpdateResp {
+    string id = 1;
+    string column = 2;
+    string data = 3;
+}
+
+////////////////////
+//      PAIR      //
+////////////////////
+
+// Start Pair //
+message PairStartReq {
+    string id = 1;
+    string peer_id = 2;
+}
+
+message PairStartResp {
+    string peer_id = 1;
+    string secret = 2;
+}
+
+// Finish Pair //
+message PairFinishReq {
+    string id = 1;
+    string peer_id = 2;
+    string secret = 3;
+}
+
+message PairFinishResp {
+    int64 created = 1;
+}

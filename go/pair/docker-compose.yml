@@ -1,0 +1,42 @@
+version: "3.9"
+
+services:
+
+  pair:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: fitebone/pair:dev
+    container_name: pair
+    depends_on:
+      - mongo
+    restart: unless-stopped
+    ports:
+      - "50051:50051"
+
+  mongo:
+    image: "mongo"
+    restart: unless-stopped
+    volumes:
+      - "/Users/fungi/pair/data/db:/data/db" # For local
+      #- "/home/papa/pair/data/db:/data/db" # For deploy
+      #- "/home/pair/data/mongod.conf:/etc/mongod.conf"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mungosux
+      MONGO_INITDB_DATABASE: pair_db
+    expose: 
+      - 27017
+    #env_file: "./env"
+
+    #command: sh -c "/wait && ./main"
+    #environment:
+    #  - WAIT_HOSTS=mongo:27017
+    #  - WAIT_TIMEOUT=300
+    #  - WAIT_SLEEP_INTERVAL=30
+    #  - WAIT_HOST_CONNECT_TIMEOUT=30
+
+  #redis:
+  #  image: "redis:alpine"
+  #  expose:
+  #    - 6379
