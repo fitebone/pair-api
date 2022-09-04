@@ -1,6 +1,5 @@
 # General
 **/.env
-**/cicd.sh
 **/.DS_Store
 
 # Rust

@@ -455,7 +455,7 @@ func newPool() *redis.Pool {
 			}
 			// Create the redis DB connection utilizing TLS
 			c, err := redis.DialURL(
-				"rediss://default:X04MYQ4fvzfbNq5cwRcUWGExnIJh4S7j@redis-19949.c92.us-east-1-3.ec2.cloud.redislabs.com:19949", //os.Getenv("redis"),
+				os.Getenv("redis"),
 				redis.DialTLSConfig(&tls.Config{
 					Certificates: []tls.Certificate{clientCert},
 					RootCAs:      rootCAPool,
