@@ -9,3 +9,7 @@ This repository contains API implementations written using Rust and Go. They are
 - Protobufs as medium for data
 - Redis used as experimental database
 - JWT validation and verification
+
+## Getting Started
+### Rust
+`cargo run server`
